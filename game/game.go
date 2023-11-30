@@ -213,12 +213,7 @@ func GetNextMoveInput(g *game) int {
 
 	num, err := strconv.Atoi(input)
 
-	if err != nil {
-		PrintBoard(g)
-		return GetNextMoveInput(g)
-	}
-
-	if num < 1 || num > 9 {
+	if err != nil || num < 1 || num > 9 || g.board[num-1] != ' ' {
 		PrintBoard(g)
 		return GetNextMoveInput(g)
 	}
